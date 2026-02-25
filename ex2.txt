@@ -1,0 +1,227 @@
+SQL> create table items(
+  2   id varchar2(2),
+  3   name  varchar2(20),
+  4   type  varchar2(20),
+  5   price  varchar2(20),
+  6   quality  varchar2(16),
+  7   item_pack_date date);
+
+Table created.
+
+SQL> insert into items values('&id','&name','&type','&price','&quality','&item_pack_date');
+Enter value for id: I1
+Enter value for name: Dairymilk
+Enter value for type: Chocolate
+Enter value for price: 500
+Enter value for quality: Good
+Enter value for item_pack_date: 12-AUG-2000
+old   1: insert into items values('&id','&name','&type','&price','&quality','&item_pack_date')
+new   1: insert into items values('I1','Dairymilk','Chocolate','500','Good','12-AUG-2000')
+
+1 row created.
+
+SQL> insert into items values('&id','&name','&type','&price','&quality','&item_pack_date');
+Enter value for id: I2
+Enter value for name: Kajukatri
+Enter value for type: Mithai
+Enter value for price: 1000
+Enter value for quality: Very good
+Enter value for item_pack_date: 15-JAN-2016
+old   1: insert into items values('&id','&name','&type','&price','&quality','&item_pack_date')
+new   1: insert into items values('I2','Kajukatri','Mithai','1000','Very good','15-JAN-2016')
+
+1 row created.
+
+SQL> insert into items values('&id','&name','&type','&price','&quality','&item_pack_date');
+Enter value for id: I3
+Enter value for name: Pizza
+Enter value for type: Fastfood
+Enter value for price: Average
+Enter value for quality: Average
+Enter value for item_pack_date: 20-FEB-2015
+old   1: insert into items values('&id','&name','&type','&price','&quality','&item_pack_date')
+new   1: insert into items values('I3','Pizza','Fastfood','Average','Average','20-FEB-2015')
+
+1 row created.
+
+SQL> insert into items values('&id','&name','&type','&price','&quality','&item_pack_date');
+Enter value for id: I4
+Enter value for name: Orangejuice
+Enter value for type: Juice
+Enter value for price: 50
+Enter value for quality: Best
+Enter value for item_pack_date: 05-FEB-2016
+old   1: insert into items values('&id','&name','&type','&price','&quality','&item_pack_date')
+new   1: insert into items values('I4','Orangejuice','Juice','50','Best','05-FEB-2016')
+
+1 row created.
+
+SQL> insert into items values('&id','&name','&type','&price','&quality','&item_pack_date');
+Enter value for id: I5
+Enter value for name: Vanilla
+Enter value for type: Cake
+Enter value for price: 2000
+Enter value for quality: Good
+Enter value for item_pack_date: 01-JAN-2016
+old   1: insert into items values('&id','&name','&type','&price','&quality','&item_pack_date')
+new   1: insert into items values('I5','Vanilla','Cake','2000','Good','01-JAN-2016')
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+SQL> SELECT price,quality,item_pack_date
+  2  
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+SQL>  SELECT price,quality,item_pack_date;
+ SELECT price,quality,item_pack_date
+                                   *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  SELECT price,quality,item_pack_date*FROM items;
+ SELECT price,quality,item_pack_date*FROM items
+                                     *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL>  SELECT price,quality,item_pack_date FROM items;
+
+PRICE                QUALITY          ITEM_PACK                                 
+-------------------- ---------------- ---------                                 
+500                  Good             12-AUG-00                                 
+1000                 Very good        15-JAN-16                                 
+Average              Average          20-FEB-15                                 
+50                   Best             05-FEB-16                                 
+2000                 Good             01-JAN-16                                 
+
+SQL> SELECT id,name,type,price FROM items;
+
+ID NAME                 TYPE                 PRICE                              
+-- -------------------- -------------------- --------------------               
+I1 Dairymilk            Chocolate            500                                
+I2 Kajukatri            Mithai               1000                               
+I3 Pizza                Fastfood             Average                            
+I4 Orangejuice          Juice                50                                 
+I5 Vanilla              Cake                 2000                               
+
+SQL> SELECT*FROM items ORDER BY quality;
+
+ID NAME                 TYPE                 PRICE                              
+-- -------------------- -------------------- --------------------               
+QUALITY          ITEM_PACK                                                      
+---------------- ---------                                                      
+I3 Pizza                Fastfood             Average                            
+Average          20-FEB-15                                                      
+                                                                                
+I4 Orangejuice          Juice                50                                 
+Best             05-FEB-16                                                      
+                                                                                
+I5 Vanilla              Cake                 2000                               
+Good             01-JAN-16                                                      
+                                                                                
+
+ID NAME                 TYPE                 PRICE                              
+-- -------------------- -------------------- --------------------               
+QUALITY          ITEM_PACK                                                      
+---------------- ---------                                                      
+I1 Dairymilk            Chocolate            500                                
+Good             12-AUG-00                                                      
+                                                                                
+I2 Kajukatri            Mithai               1000                               
+Very good        15-JAN-16                                                      
+                                                                                
+
+SQL> SELECT DISTINCT quality FROM items;
+
+QUALITY                                                                         
+----------------                                                                
+Average                                                                         
+Best                                                                            
+Good                                                                            
+Very good                                                                       
+
+SQL> UPDATE items SET quality='Very Good' WHERE quality='Good';
+
+2 rows updated.
+
+SQL> SELECT * FROM items WHERE quality='Verygood';
+
+no rows selected
+
+SQL> ALTER TABLE items ADD item_pur_date DATE;
+
+Table altered.
+
+SQL> SELECT*FROM items WHERE price>500;
+ERROR:
+ORA-01722: invalid number 
+
+
+
+no rows selected
+
+SQL> SELECT*FROM items WHERE price<500;
+SELECT*FROM items WHERE price<500
+                        *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT * FROM items WHERE price<500;
+SELECT * FROM items WHERE price<500
+                          *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> SELECT*FROM items WHERE price<500';
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT*FROM items WHERE price<'500';
+
+ID NAME                 TYPE                 PRICE                              
+-- -------------------- -------------------- --------------------               
+QUALITY          ITEM_PACK ITEM_PUR_                                            
+---------------- --------- ---------                                            
+I2 Kajukatri            Mithai               1000                               
+Very good        15-JAN-16                                                      
+                                                                                
+I4 Orangejuice          Juice                50                                 
+Best             05-FEB-16                                                      
+                                                                                
+I5 Vanilla              Cake                 2000                               
+Very Good        01-JAN-16                                                      
+                                                                                
+
+SQL> DELETE FROM items WHERE price='50';
+
+1 row deleted.
+
+SQL> ALTER TABLE person RENAME TO items;
+ALTER TABLE person RENAME TO items
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ALTER TABLE items RENAME TO person;
+
+Table altered.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
