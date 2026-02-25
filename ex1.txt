@@ -1,0 +1,66 @@
+SQL> create table deposit(
+  2  actno varchar2(5) primary key,
+  3  cname varchar2(15),
+  4  bname varchar2(15),
+  5  amount number(9,2),
+  6  adate date);
+
+Table created.
+
+SQL> insert into deposit values('&actno','&cname','&bname','&amount','&adate');
+Enter value for actno: 101
+Enter value for cname: Tanvi
+Enter value for bname: Rajkot
+Enter value for amount: 5000
+Enter value for adate: 04-APR-07
+old   1: insert into deposit values('&actno','&cname','&bname','&amount','&adate')
+new   1: insert into deposit values('101','Tanvi','Rajkot','5000','04-APR-07')
+
+1 row created.
+
+SQL> insert into deposit values('&actno','&cname','&bname','&amount','&adate');
+Enter value for actno: 102
+Enter value for cname: Rudri
+Enter value for bname: Rajkot
+Enter value for amount: 5000
+Enter value for adate: 05-DEC-07
+old   1: insert into deposit values('&actno','&cname','&bname','&amount','&adate')
+new   1: insert into deposit values('102','Rudri','Rajkot','5000','05-DEC-07')
+
+1 row created.
+
+SQL> insert into deposit values('&actno','&cname','&bname','&amount','&adate');
+Enter value for actno: 103
+Enter value for cname: Diya
+Enter value for bname: Rajkot
+Enter value for amount: 5000
+Enter value for adate: 31-AUG-07
+old   1: insert into deposit values('&actno','&cname','&bname','&amount','&adate')
+new   1: insert into deposit values('103','Diya','Rajkot','5000','31-AUG-07')
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+SQL> WE FORGOT DIGVIJAYSINH.
+SP2-0734: unknown command beginning "WE FORGOT ..." - rest of line ignored.
+SQL> spool  C:\92500527103\ex1.txt append;
+SQL>  insert into deposit values('&actno','&cname','&bname','&amount','&adate');
+Enter value for actno: 104
+Enter value for cname: Digvijaysinh
+Enter value for bname: Rajkot
+Enter value for amount: 5000
+Enter value for adate: 31-MAR-07
+old   1:  insert into deposit values('&actno','&cname','&bname','&amount','&adate')
+new   1:  insert into deposit values('104','Digvijaysinh','Rajkot','5000','31-MAR-07')
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
