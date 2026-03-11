@@ -1,0 +1,412 @@
+SQL> create table c_master(
+  2  cust_no varchar2(5),
+  3   cust_name varchar2(50),
+  4   address1  varchar2(100),
+  5  address2  varchar2(100),
+  6  city varchar2(50),
+  7  state varchar2(50),
+  8  ph_no varchar2(15));
+
+Table created.
+
+SQL> insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no');
+Enter value for cust_no: C1
+Enter value for cust_name: PRIYA
+Enter value for address1: RINGROAD
+Enter value for address2: PUJA PARK
+Enter value for city: AHMEDABAD
+Enter value for state: GUJARAT
+Enter value for ph_no: 898978548
+old   1: insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no')
+new   1: insert into c_master values('C1','PRIYA','RINGROAD','PUJA PARK','AHMEDABAD','GUJARAT','898978548')
+
+1 row created.
+
+SQL> C2
+SP2-0025: Invalid change string.
+SQL> insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no');
+Enter value for cust_no: C2
+Enter value for cust_name: PUJA
+Enter value for address1: LAJPAT NAGAR
+Enter value for address2: SHYAMAL COLONY
+Enter value for city: BANARAS
+Enter value for state: UP
+Enter value for ph_no: 7898456213
+old   1: insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no')
+new   1: insert into c_master values('C2','PUJA','LAJPAT NAGAR','SHYAMAL COLONY','BANARAS','UP','7898456213')
+
+1 row created.
+
+SQL> insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no');
+Enter value for cust_no: C3
+Enter value for cust_name: ANKIT
+Enter value for address1: BORIVALI
+Enter value for address2: PANCHAYAT NAGAR
+Enter value for city: MUMBAI
+Enter value for state: MAHARASHTRA
+Enter value for ph_no: 7885984251
+old   1: insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no')
+new   1: insert into c_master values('C3','ANKIT','BORIVALI','PANCHAYAT NAGAR','MUMBAI','MAHARASHTRA','7885984251')
+
+1 row created.
+
+SQL> insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no');
+Enter value for cust_no: C4
+Enter value for cust_name: RAVI
+Enter value for address1: VAGDIROAD
+Enter value for address2: NANDBHOOMI COLONY
+Enter value for city: DELHI
+Enter value for state: DELHI
+Enter value for ph_no: 7898452034
+old   1: insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no')
+new   1: insert into c_master values('C4','RAVI','VAGDIROAD','NANDBHOOMI COLONY','DELHI','DELHI','7898452034')
+
+1 row created.
+
+SQL> insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no');
+Enter value for cust_no: C5
+Enter value for cust_name: ALPA
+Enter value for address1: JAMANAGARROAD
+Enter value for address2: RAILWAY COLONY
+Enter value for city: AHMEDABAD
+Enter value for state: GUJARAT
+Enter value for ph_no: 7465241589
+old   1: insert into c_master values('&cust_no','&cust_name','&address1','&address2','&city','&state','&ph_no')
+new   1: insert into c_master values('C5','ALPA','JAMANAGARROAD','RAILWAY COLONY','AHMEDABAD','GUJARAT','7465241589')
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select*from c_master;
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C1    PRIYA                                                                     
+RINGROAD                                                                        
+PUJA PARK                                                                       
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+AHMEDABAD                                                                       
+GUJARAT                                            898978548                    
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C2    PUJA                                                                      
+LAJPAT NAGAR                                                                    
+SHYAMAL COLONY                                                                  
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+BANARAS                                                                         
+UP                                                 7898456213                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C3    ANKIT                                                                     
+BORIVALI                                                                        
+PANCHAYAT NAGAR                                                                 
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+MUMBAI                                                                          
+MAHARASHTRA                                        7885984251                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C4    RAVI                                                                      
+VAGDIROAD                                                                       
+NANDBHOOMI COLONY                                                               
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+DELHI                                                                           
+DELHI                                              7898452034                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C5    ALPA                                                                      
+JAMANAGARROAD                                                                   
+RAILWAY COLONY                                                                  
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+AHMEDABAD                                                                       
+GUJARAT                                            7465241589                   
+                                                                                
+
+SQL> select city from c_master where state='GUJARAT';
+
+CITY                                                                            
+--------------------------------------------------                              
+AHMEDABAD                                                                       
+AHMEDABAD                                                                       
+
+SQL> SELECT*FROM c_master order by cust_name ASC;
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C5    ALPA                                                                      
+JAMANAGARROAD                                                                   
+RAILWAY COLONY                                                                  
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+AHMEDABAD                                                                       
+GUJARAT                                            7465241589                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C3    ANKIT                                                                     
+BORIVALI                                                                        
+PANCHAYAT NAGAR                                                                 
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+MUMBAI                                                                          
+MAHARASHTRA                                        7885984251                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C1    PRIYA                                                                     
+RINGROAD                                                                        
+PUJA PARK                                                                       
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+AHMEDABAD                                                                       
+GUJARAT                                            898978548                    
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C2    PUJA                                                                      
+LAJPAT NAGAR                                                                    
+SHYAMAL COLONY                                                                  
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+BANARAS                                                                         
+UP                                                 7898456213                   
+                                                                                
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+C4    RAVI                                                                      
+VAGDIROAD                                                                       
+NANDBHOOMI COLONY                                                               
+
+CUST_ CUST_NAME                                                                 
+----- --------------------------------------------------                        
+ADDRESS1                                                                        
+--------------------------------------------------------------------------------
+ADDRESS2                                                                        
+--------------------------------------------------------------------------------
+CITY                                                                            
+--------------------------------------------------                              
+STATE                                              PH_NO                        
+-------------------------------------------------- ---------------              
+DELHI                                                                           
+DELHI                                              7898452034                   
+                                                                                
+
+SQL> select distinct city from c_master;
+
+CITY                                                                            
+--------------------------------------------------                              
+MUMBAI                                                                          
+DELHI                                                                           
+BANARAS                                                                         
+AHMEDABAD                                                                       
+
+SQL> update c_master set address1='CG ROAD' where cust_name='PRIYA';
+
+1 row updated.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> alter table c_master add pin_code number(6);
+
+Table altered.
+
+SQL> alter table c_master drop column pin_code;
+alter table c_master drop column pin_code
+*
+ERROR at line 1:
+ORA-12988: cannot drop column from table owned by SYS 
+
+
+SQL> delete from c_master where ph_no='7898452034';
+
+1 row deleted.
+
+SQL> commmit;
+SP2-0042: unknown command "commmit" - rest of line ignored.
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
