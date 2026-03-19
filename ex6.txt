@@ -1,0 +1,149 @@
+SQL> create table bank_branch(
+  2  branch_id varchar2(5),
+  3   branch_name varchar2(100),
+  4  branch_address varchar2(100),
+  5   branch_city varchar2(100),
+  6  branch_state varchar2(100),
+  7  branch_open_date date);
+create table bank_branch(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create table bank_branch1(
+  2   branch_id varchar2(5),
+  3   branch_name varchar2(100),
+  4  branch_address varchar2(100),
+  5   branch_city varchar2(100),
+  6  branch_state varchar2(100),
+  7  branch_open_date date);
+
+Table created.
+
+SQL>  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date');
+Enter value for branch_id: B001
+Enter value for branch_name: BOI
+Enter value for branch_address: JAGANATH ROAD
+Enter value for branch_city: RAJKOT
+Enter value for branch_state: GUJARAT
+Enter value for branch_open_date: 22-MAR-2015
+old   1:  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date')
+new   1:  insert into bank_branch values('B001','BOI','JAGANATH ROAD','RAJKOT','GUJARAT','22-MAR-2015')
+
+1 row created.
+
+SQL>  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date');
+Enter value for branch_id: B002
+Enter value for branch_name: SBI
+Enter value for branch_address: BORIWALI ROAD
+Enter value for branch_city: MUMBAI
+Enter value for branch_state: MAHARASHTRA
+Enter value for branch_open_date: 12-JAN-2000
+old   1:  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date')
+new   1:  insert into bank_branch values('B002','SBI','BORIWALI ROAD','MUMBAI','MAHARASHTRA','12-JAN-2000')
+
+1 row created.
+
+SQL>  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date');
+Enter value for branch_id: B003
+Enter value for branch_name: HDFC
+Enter value for branch_address: AGRA ROAD
+Enter value for branch_city: AGRA
+Enter value for branch_state: U.P
+Enter value for branch_open_date: 04-FEB-1998
+old   1:  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date')
+new   1:  insert into bank_branch values('B003','HDFC','AGRA ROAD','AGRA','U.P','04-FEB-1998')
+
+1 row created.
+
+SQL>  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date');
+Enter value for branch_id: B004
+Enter value for branch_name: DENABANK
+Enter value for branch_address: CG ROAD
+Enter value for branch_city: AHMEDABAD
+Enter value for branch_state: GUJARAT
+Enter value for branch_open_date: 20-SEP-2012
+old   1:  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date')
+new   1:  insert into bank_branch values('B004','DENABANK','CG ROAD','AHMEDABAD','GUJARAT','20-SEP-2012')
+
+1 row created.
+
+SQL>  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date');
+Enter value for branch_id: B005
+Enter value for branch_name: ICICI
+Enter value for branch_address: MAJAVDI ROAD
+Enter value for branch_city: JUNAGADH
+Enter value for branch_state: GUJARAT
+Enter value for branch_open_date: 07-MAY-2011
+old   1:  insert into bank_branch values('&branch_id','&branch_name','&branch_address','&branch_city','&branch_state','&branch_open_date')
+new   1:  insert into bank_branch values('B005','ICICI','MAJAVDI ROAD','JUNAGADH','GUJARAT','07-MAY-2011')
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> ALTER TABLE bank_branch1 MODIFY branch_state varchar2(50);
+
+Table altered.
+
+SQL> UPDATE bank_branch SET branch_name='Union' WHERE branch_id='B003';
+
+2 rows updated.
+
+SQL> UPDATE bank_branch1 SET branch_open_date= TO DATE('04-NOV-2015','DD-MM-YYYY') WHERE branch_name='Union';
+UPDATE bank_branch1 SET branch_open_date= TO DATE('04-NOV-2015','DD-MM-YYYY') WHERE branch_name='Union'
+                                          *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL>  UPDATE bank_branch1 SET branch_open_date= TO_ DATE('04-NOV-2015','DD-MM-YYYY') WHERE branch_name='Union';
+ UPDATE bank_branch1 SET branch_open_date= TO_ DATE('04-NOV-2015','DD-MM-YYYY') WHERE branch_name='Union'
+                                               *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL>  UPDATE bank_branch1 SET branch_open_date= TO_DATE('04-NOV-2015','DD-MM-YYYY') WHERE branch_name='Union';
+
+0 rows updated.
+
+SQL> ALTER TABLE bank_branch1 ADD pincode number(6);
+
+Table altered.
+
+SQL> UPDATE bank_branch1 SET pincode=360006 WHERE branch_name='DENABANK';
+
+0 rows updated.
+
+SQL> DELETE FROM bank_branch1 WHERE branch_open_date=TO_DATE('07-MAY-2011','DD-MON-YYYY');
+
+0 rows deleted.
+
+SQL> RENAME bank_branch1 TO branch_master;
+
+Table renamed.
+
+SQL> DESC branch_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BRANCH_ID                                          VARCHAR2(5)
+ BRANCH_NAME                                        VARCHAR2(100)
+ BRANCH_ADDRESS                                     VARCHAR2(100)
+ BRANCH_CITY                                        VARCHAR2(100)
+ BRANCH_STATE                                       VARCHAR2(50)
+ BRANCH_OPEN_DATE                                   DATE
+ PINCODE                                            NUMBER(6)
+
+SQL> CREATE TABLE branch_info AS SELECT*FROM branch_master;
+
+Table created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
