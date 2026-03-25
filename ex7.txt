@@ -1,0 +1,541 @@
+SQL> create table FOR JOB(
+  2  job_id varchar2(20),
+  3  job_name varchar2(100),
+  4  min_sal varchar2(100),
+  5  max_sal varchar2(100));
+create table FOR JOB(
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> create table JOB1(
+  2  job_id varchar2(20),
+  3  job_name varchar2(100),
+  4  min_sal varchar2(100),
+  5  max_sal varchar2(100));
+
+Table created.
+
+SQL> create EMPLOYEE1(
+  2  emp_no varchar2(5),
+  3  emp_name varchar2(100),
+  4  emp_sal varchar2(100),
+  5  
+SQL> 
+SQL> create table EMPLOYEE1(
+  2  emp_no varchar2(5),
+  3  emp_name varchar2(100),
+  4  emp_sal varchar2(100),
+  5  emp_comm varchar2(100),
+  6  dept_no varchar2(100));
+
+Table created.
+
+SQL> create table DEPOSIT1(
+  2  a_no varchar2(5),
+  3  bname varchar2(100),
+  4  cname varchar2(100),
+  5  amount number(9,2),
+  6  adate date);
+
+Table created.
+
+SQL> insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: IT_PROG
+Enter value for job_name: PROGRAMMER
+Enter value for min_sal: 4000
+Enter value for max_sal: 10000
+old   1: insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1: insert into JOB1 values('IT_PROG','PROGRAMMER','4000','10000')
+
+1 row created.
+
+SQL>  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: MK_MGR
+Enter value for job_name: MARKETING MANAGER
+Enter value for min_sal: 9000
+Enter value for max_sal: 15000
+old   1:  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1:  insert into JOB1 values('MK_MGR','MARKETING MANAGER','9000','15000')
+
+1 row created.
+
+SQL>  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: FI_MGR
+Enter value for job_name: FINANCE MANAGER
+Enter value for min_sal: 8200
+Enter value for max_sal: 12000
+old   1:  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1:  insert into JOB1 values('FI_MGR','FINANCE MANAGER','8200','12000')
+
+1 row created.
+
+SQL>  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: FI_ACC
+Enter value for job_name: ACCOUNT
+Enter value for min_sal: 4200
+Enter value for max_sal: 9000
+old   1:  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1:  insert into JOB1 values('FI_ACC','ACCOUNT','4200','9000')
+
+1 row created.
+
+SQL>  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: LEC
+Enter value for job_name: LECTURER
+Enter value for min_sal: 6000
+Enter value for max_sal: 17000
+old   1:  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1:  insert into JOB1 values('LEC','LECTURER','6000','17000')
+
+1 row created.
+
+SQL>  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal');
+Enter value for job_id: COMP_OP
+Enter value for job_name: COMPUTER OPERATOR
+Enter value for min_sal: 1500
+Enter value for max_sal: 3000
+old   1:  insert into JOB1 values('&job_id','&job_name','&min_sal','&max_sal')
+new   1:  insert into JOB1 values('COMP_OP','COMPUTER OPERATOR','1500','3000')
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 101
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 800
+Enter value for emp_comm: 
+Enter value for dept_no: 20
+old   1: insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1: insert into EMPLOYEE1 values('101','SMITH','800','','20')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 102
+Enter value for emp_name: SNEHAL
+Enter value for emp_sal: 1600
+Enter value for emp_comm: 300
+Enter value for dept_no: 25
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('102','SNEHAL','1600','300','25')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 103
+Enter value for emp_name: ADAMA
+Enter value for emp_sal: 1100
+Enter value for emp_comm: 0
+Enter value for dept_no: 20
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('103','ADAMA','1100','0','20')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 104
+Enter value for emp_name: AMAN
+Enter value for emp_sal: 3000
+Enter value for emp_comm: 
+Enter value for dept_no: 15
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('104','AMAN','3000','','15')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 105
+Enter value for emp_name: ANITA
+Enter value for emp_sal: 5000
+Enter value for emp_comm: 5000
+Enter value for dept_no: 10
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('105','ANITA','5000','5000','10')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 106
+Enter value for emp_name: SNEHA
+Enter value for emp_sal: 2450
+Enter value for emp_comm: 2450
+Enter value for dept_no: 10
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('106','SNEHA','2450','2450','10')
+
+1 row created.
+
+SQL>  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no');
+Enter value for emp_no: 107
+Enter value for emp_name: ANAMIKA
+Enter value for emp_sal: 2975
+Enter value for emp_comm: 
+Enter value for dept_no: 30
+old   1:  insert into EMPLOYEE1 values('&emp_no','&emp_name','&emp_sal','&emp_comm','&dept_no')
+new   1:  insert into EMPLOYEE1 values('107','ANAMIKA','2975','','30')
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 101
+Enter value for cname: ANIL
+Enter value for bname: ANDHERI
+Enter value for amount: 7000
+Enter value for adate: 01-JAN-06
+old   1: insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1: insert into DEPOSIT1 values('101','ANIL','ANDHERI','7000','01-JAN-06')
+
+1 row created.
+
+SQL>  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 102
+Enter value for cname: SUNIL
+Enter value for bname: VIRAR
+Enter value for amount: 5000
+Enter value for adate: 15-JUL-06
+old   1:  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1:  insert into DEPOSIT1 values('102','SUNIL','VIRAR','5000','15-JUL-06')
+
+1 row created.
+
+SQL>  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 103
+Enter value for cname: JAY
+Enter value for bname: VILLEPARLE
+Enter value for amount: 6500
+Enter value for adate: 12-MAR-06
+old   1:  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1:  insert into DEPOSIT1 values('103','JAY','VILLEPARLE','6500','12-MAR-06')
+
+1 row created.
+
+SQL>  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 104
+Enter value for cname: VIJAY
+Enter value for bname: ANDHERI
+Enter value for amount: 8000
+Enter value for adate: 17-SEP-06
+old   1:  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1:  insert into DEPOSIT1 values('104','VIJAY','ANDHERI','8000','17-SEP-06')
+
+1 row created.
+
+SQL>  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 105
+Enter value for cname: KEYUR
+Enter value for bname: DADAR
+Enter value for amount: 7500
+Enter value for adate: 19-NOV-06
+old   1:  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1:  insert into DEPOSIT1 values('105','KEYUR','DADAR','7500','19-NOV-06')
+
+1 row created.
+
+SQL>  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate');
+Enter value for a_no: 106
+Enter value for cname: MAYUR
+Enter value for bname: BORIVALI
+Enter value for amount: 5500
+Enter value for adate: 21-DEC-06
+old   1:  insert into DEPOSIT1 values('&a_no','&cname','&bname','&amount','&adate')
+new   1:  insert into DEPOSIT1 values('106','MAYUR','BORIVALI','5500','21-DEC-06')
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT a_no , amount FROM DEPOSIT1 WHERE adate BETWEEN '01-JAN-06' AND '25-JUL-06';
+
+A_NO      AMOUNT                                                                
+----- ----------                                                                
+101         7000                                                                
+102         5000                                                                
+103         6500                                                                
+
+SQL> SELECT FROM JOB1 WHERE min_sal>4000;
+SELECT FROM JOB1 WHERE min_sal>4000
+       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT * FROM JOB1 WHERE min_sal>4000;
+
+JOB_ID                                                                          
+--------------------                                                            
+JOB_NAME                                                                        
+--------------------------------------------------------------------------------
+MIN_SAL                                                                         
+--------------------------------------------------------------------------------
+MAX_SAL                                                                         
+--------------------------------------------------------------------------------
+MK_MGR                                                                          
+MARKETING MANAGER                                                               
+9000                                                                            
+15000                                                                           
+                                                                                
+
+JOB_ID                                                                          
+--------------------                                                            
+JOB_NAME                                                                        
+--------------------------------------------------------------------------------
+MIN_SAL                                                                         
+--------------------------------------------------------------------------------
+MAX_SAL                                                                         
+--------------------------------------------------------------------------------
+FI_MGR                                                                          
+FINANCE MANAGER                                                                 
+8200                                                                            
+12000                                                                           
+                                                                                
+
+JOB_ID                                                                          
+--------------------                                                            
+JOB_NAME                                                                        
+--------------------------------------------------------------------------------
+MIN_SAL                                                                         
+--------------------------------------------------------------------------------
+MAX_SAL                                                                         
+--------------------------------------------------------------------------------
+FI_ACC                                                                          
+ACCOUNT                                                                         
+4200                                                                            
+9000                                                                            
+                                                                                
+
+JOB_ID                                                                          
+--------------------                                                            
+JOB_NAME                                                                        
+--------------------------------------------------------------------------------
+MIN_SAL                                                                         
+--------------------------------------------------------------------------------
+MAX_SAL                                                                         
+--------------------------------------------------------------------------------
+LEC                                                                             
+LECTURER                                                                        
+6000                                                                            
+17000                                                                           
+                                                                                
+
+SQL> SELECT emp_name FROM EMPLOYEE1 WHERE dept_no=20;
+
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+SMITH                                                                           
+ADAMA                                                                           
+
+SQL> SELECT emp_no,emp_name,dept_no FROM EMPLOYEE1 WHERE dept_no IN (10,20);
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+101                                                                             
+SMITH                                                                           
+20                                                                              
+                                                                                
+103                                                                             
+ADAMA                                                                           
+20                                                                              
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+105                                                                             
+ANITA                                                                           
+10                                                                              
+                                                                                
+106                                                                             
+SNEHA                                                                           
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+10                                                                              
+                                                                                
+
+SQL> SELECT * FROM EMPLOYEE1 WHERE emp_name LIKE 'A%';
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+103                                                                             
+ADAMA                                                                           
+1100                                                                            
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+0                                                                               
+20                                                                              
+                                                                                
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+104                                                                             
+AMAN                                                                            
+3000                                                                            
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+15                                                                              
+                                                                                
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+105                                                                             
+ANITA                                                                           
+5000                                                                            
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+5000                                                                            
+10                                                                              
+                                                                                
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+107                                                                             
+ANAMIKA                                                                         
+2975                                                                            
+
+EMP_N                                                                           
+-----                                                                           
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+EMP_COMM                                                                        
+--------------------------------------------------------------------------------
+DEPT_NO                                                                         
+--------------------------------------------------------------------------------
+                                                                                
+30                                                                              
+                                                                                
+
+SQL> SELECT * FROM EMPLOYEE1 WHERE emp_name LIKE '__a%';
+
+no rows selected
+
+SQL>  SELECT * FROM EMPLOYEE1 WHERE emp_name LIKE 'A_a%';
+
+no rows selected
+
+SQL> SELECT * FROM EMPLOYEE1 WHERE emp_name LIKE 'A_a%';
+
+no rows selected
+
+SQL> SELECT emp_name,emp_no,emp_sal FROM EMPLOYEE1 WHERE emp_name LIKE 'ANI__';
+
+EMP_NAME                                                                        
+--------------------------------------------------------------------------------
+EMP_N                                                                           
+-----                                                                           
+EMP_SAL                                                                         
+--------------------------------------------------------------------------------
+ANITA                                                                           
+105                                                                             
+5000                                                                            
+                                                                                
+
+SQL> SELECT cname FROM DEPSIT1 ORDER BY cname;
+SELECT cname FROM DEPSIT1 ORDER BY cname
+                  *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL>  SELECT cname FROM DEPOSIT1 ORDER BY cname;
+
+CNAME                                                                           
+--------------------------------------------------------------------------------
+ANDHERI                                                                         
+ANDHERI                                                                         
+BORIVALI                                                                        
+DADAR                                                                           
+VILLEPARLE                                                                      
+VIRAR                                                                           
+
+6 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
